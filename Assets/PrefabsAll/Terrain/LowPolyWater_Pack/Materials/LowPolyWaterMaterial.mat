@@ -301,7 +301,7 @@ Material:
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
-    - _Metallic: 0
+    - _Metallic: 0.639
     - _MetallicRemapMax: 0
     - _MetallicRemapMin: 0
     - _Mode: 0
@@ -327,7 +327,7 @@ Material:
     - _Shininess: 17.1
     - _ShoreTiling: 56.862743
     - _SkyBoxReflection: 0.426
-    - _Smoothness: 0.4
+    - _Smoothness: 0.983
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
