@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    public Vector3 targetPosition; // The target position for the teleport
+    public GameObject TargetCube = null;
+
+    public GameObject Player = null;
+
+    private bool startTeleport = false;
+
+    public float State;
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (startTeleport)
+        {
+            startTeleport = false;
+            Player.transform.position = TargetCube.transform.position;
+            float distance = Vector3.Distance(Player.transform.position, TargetCube.transform.position);
+
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        // Check if the object that entered the trigger is the player
-        if (other.gameObject.tag == "Player")
+        if (State == 0)
         {
-            // Teleport the object to the target position
-            other.transform.position = targetPosition;
+            startTeleport = true;
+        }
+
+        else if(State == 1)
+        {
+            if ()
+            {
+
+            }
         }
     }
 }
