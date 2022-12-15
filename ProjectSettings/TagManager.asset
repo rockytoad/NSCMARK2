@@ -9,6 +9,7 @@ TagManager:
   - Key
   - Hammer
   - Ladder
+  - AI
   layers:
   - Default
   - TransparentFX

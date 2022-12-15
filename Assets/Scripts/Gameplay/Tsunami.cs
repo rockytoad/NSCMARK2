@@ -24,5 +24,9 @@ public class Tsunami : MonoBehaviour
             Deadscore.gameObject.SetActive(true);
             
         }
+        if (other.gameObject.tag == "AI")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
