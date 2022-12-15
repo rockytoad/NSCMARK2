@@ -28,6 +28,10 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     public Transform orientation;
 
+    [Header("Item Check")]
+    public bool Key = false;
+    public bool Axe = false;
+
     float horizontalInput;
     float verticalInput;
 
