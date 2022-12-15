@@ -6,6 +6,8 @@ public class Teleport : MonoBehaviour
 {
     public GameObject Keyneed;
 
+    public GameObject Hammerneed;
+
     public GameObject TargetCube = null;
 
     public GameObject Player = null;
@@ -47,14 +49,33 @@ public class Teleport : MonoBehaviour
             }
             else if(PlayerController.Key == false)
             {
-                StartCoroutine(Delay());               
+                StartCoroutine(Delay1());               
+            }
+        }
+        else if (State == 2 && other.gameObject.tag == "Player")
+        {
+            if (PlayerController.Hammer == true)
+            {
+                score.score += 50;
+                startTeleport = true;
+                PlayerController.Hammer = false;
+            }
+            else if (PlayerController.Hammer == false)
+            {
+                StartCoroutine(Delay2());
             }
         }
     }
-    IEnumerator Delay()
+    IEnumerator Delay1()
     {
         Keyneed.gameObject.SetActive(true);
         yield return new WaitForSeconds(5.0f);
         Keyneed.gameObject.SetActive(false);
+    }
+    IEnumerator Delay2()
+    {
+        Hammerneed.gameObject.SetActive(true);
+        yield return new WaitForSeconds(5.0f);
+        Hammerneed.gameObject.SetActive(false);
     }
 }

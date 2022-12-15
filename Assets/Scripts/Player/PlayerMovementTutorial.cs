@@ -30,7 +30,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     [Header("Item Check")]
     public bool Key = false;
-    public bool Axe = false;
+    public bool Hammer = false;
 
     [Header("Victory Check")]
     public bool isSafe = false;
