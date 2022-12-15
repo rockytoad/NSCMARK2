@@ -7,13 +7,14 @@ public class DropSimple : MonoBehaviour
     [Header("Item")]
     public GameObject Key;
     public GameObject Hammer;
+    public GameObject Ladder;
 
     [Header("Player")]
     public GameObject Orientation;
 
     [SerializeField] bool isCooldown = false;
-        PlayerMovementTutorial PlayerController;
-    
+    PlayerMovementTutorial PlayerController;
+
     void Update()
     {
         PlayerController = GameObject.Find("Player").GetComponent<PlayerMovementTutorial>();
@@ -30,12 +31,18 @@ public class DropSimple : MonoBehaviour
             Debug.Log("Drop Hammer");
             PlayerController.Hammer = false;
         }
-    }
+        else if (Input.GetKeyDown(KeyCode.Q) && PlayerController.Ladder == true && isCooldown == false)
+        {
+            Instantiate(Ladder, Orientation.transform.position + (Orientation.transform.forward * 0.5f), Orientation.transform.rotation);
+            Debug.Log("Drop Ladder");
+            PlayerController.Ladder = false;
+        }
 
-    IEnumerator Delay()
-    {
-        isCooldown = true;
-        yield return new WaitForSeconds(3f);
-        isCooldown = false;
+        IEnumerator Delay()
+        {
+            isCooldown = true;
+            yield return new WaitForSeconds(3f);
+            isCooldown = false;
+        }
     }
 }

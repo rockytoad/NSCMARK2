@@ -27,6 +27,13 @@ public class VictoryCondition : MonoBehaviour
 
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "VictoryPoint")
+        {
+            RequireKey.gameObject.SetActive(false);
+        }
+    }
     //void OnTriggerEnter(Collider other)
     //{
     //    // Check if the object that entered the trigger is the player

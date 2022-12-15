@@ -8,6 +8,8 @@ public class Teleport : MonoBehaviour
 
     public GameObject Hammerneed;
 
+    public GameObject Ladderneed;
+
     public GameObject TargetCube = null;
 
     public GameObject Player = null;
@@ -65,6 +67,19 @@ public class Teleport : MonoBehaviour
                 StartCoroutine(Delay2());
             }
         }
+        else if (State == 3 && other.gameObject.tag == "Player")
+        {
+            if (PlayerController.Ladder == true)
+            {
+                score.score += 50;
+                startTeleport = true;
+                PlayerController.Ladder = false;
+            }
+            else if (PlayerController.Ladder == false)
+            {
+                StartCoroutine(Delay3());
+            }
+        }
     }
     IEnumerator Delay1()
     {
@@ -77,5 +92,11 @@ public class Teleport : MonoBehaviour
         Hammerneed.gameObject.SetActive(true);
         yield return new WaitForSeconds(5.0f);
         Hammerneed.gameObject.SetActive(false);
+    }
+    IEnumerator Delay3()
+    {
+        Ladderneed.gameObject.SetActive(true);
+        yield return new WaitForSeconds(5.0f);
+        Ladderneed.gameObject.SetActive(false);
     }
 }
