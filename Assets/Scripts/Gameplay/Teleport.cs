@@ -32,12 +32,12 @@ public class Teleport : MonoBehaviour
             startTeleport = true;
         }
 
-        else if(State == 1)
-        {
-            if ()
-            {
+        //else if(State == 1)
+        //{
+        //    if ()
+        //    {
 
-            }
-        }
+        //    }
+        //}
     }
 }
