@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class VictoryCondition : MonoBehaviour
 {
+    public GameObject RequireKey;
     public void OnTriggerStay(Collider other)
     {
         // Check if the object that entered the trigger is the player
         if (other.gameObject.tag == "VictoryPoint")
         {
+            RequireKey.gameObject.SetActive(true);
             // Get the PlayerController component from the player
             PlayerMovementTutorial playerController = gameObject.GetComponent<PlayerMovementTutorial>();
             Scores score = gameObject.GetComponent<Scores>();
@@ -20,6 +22,7 @@ public class VictoryCondition : MonoBehaviour
                 playerController.isSafe = true;
                 playerController.moveSpeed = 0;
                 other.enabled = false;
+                RequireKey.gameObject.SetActive(false);
             }
 
         }

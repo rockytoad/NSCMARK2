@@ -30,16 +30,15 @@ public class Teleport : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
-        if (State == 0)
+        PlayerController = GameObject.Find("Player").GetComponent<PlayerMovementTutorial>();
+        score = GameObject.Find("Player").GetComponent<Scores>();
+        if (State == 0 && other.gameObject.tag == "Player")
         {
             startTeleport = true;
         }
 
-        else if (State == 1)
+        else if (State == 1 && other.gameObject.tag == "Player")
         {
-            PlayerController = GameObject.Find("Player").GetComponent<PlayerMovementTutorial>();
-            score = GameObject.Find("Player").GetComponent<Scores>();
             if (PlayerController.Key == true)
             {
                 score.score += 50;
