@@ -11,10 +11,13 @@ public class VictoryCondition : MonoBehaviour
         {
             // Get the PlayerController component from the player
             PlayerMovementTutorial playerController = gameObject.GetComponent<PlayerMovementTutorial>();
+            Scores score = gameObject.GetComponent<Scores>();
 
             if (Input.GetKeyDown(KeyCode.E))
             {
                 // Set the player's speed to 0 to disable movement
+                score.score += 100;
+                playerController.isSafe = true;
                 playerController.moveSpeed = 0;
                 other.enabled = false;
             }

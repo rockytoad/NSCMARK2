@@ -32,6 +32,9 @@ public class PlayerMovementTutorial : MonoBehaviour
     public bool Key = false;
     public bool Axe = false;
 
+    [Header("Victory Check")]
+    public bool isSafe = false;
+
     float horizontalInput;
     float verticalInput;
 

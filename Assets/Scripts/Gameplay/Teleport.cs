@@ -15,7 +15,7 @@ public class Teleport : MonoBehaviour
     public float State;
 
     PlayerMovementTutorial PlayerController;
-
+    Scores score;
     // Update is called once per frame
     void Update()
     {
@@ -39,8 +39,10 @@ public class Teleport : MonoBehaviour
         else if (State == 1)
         {
             PlayerController = GameObject.Find("Player").GetComponent<PlayerMovementTutorial>();
+            score = GameObject.Find("Player").GetComponent<Scores>();
             if (PlayerController.Key == true)
             {
+                score.score += 50;
                 startTeleport = true;
                 PlayerController.Key = false;
             }

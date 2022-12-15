@@ -6,14 +6,18 @@ using TMPro;
 public class Scores : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI scoreText;
-
-    void OnTriggerEnter(Collider other)
+    public int score = 0;
+    private void Update()
     {
-        // Check if the object that entered the trigger is the player
-        if (other.gameObject.tag == "VictoryPoint")
-        {
-            // Update the score text
-            scoreText.text = "Score: 100";
-        }
+        scoreText.text = "Score: " + score;
     }
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    // Check if the object that entered the trigger is the player
+    //    if (other.gameObject.tag == "VictoryPoint")
+    //    {
+    //        // Update the score text
+    //        scoreText.text = "Score: "+ score;
+    //    }
+    //}
 }
